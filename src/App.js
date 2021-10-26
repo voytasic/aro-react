@@ -57,10 +57,10 @@ export default class App extends Component {
             </td>
       </tr> );
   render = () =>
-      <div className="Aro-class">
+      <div className="">
           <div className="Aro-class">
              <h4 className="bg-primary text-white text-center p-2">
-              {this.state.userName}'s To Do List
+              {this.state.userName}'s Its my list things to do!!!
               ({ this.state.todoItems.filter(t => !t.done).length} items to do)
           </h4> 
           </div>
