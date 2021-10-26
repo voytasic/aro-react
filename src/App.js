@@ -61,7 +61,7 @@ export default class App extends Component {
     render = () =>
     <div className="">
         <div className="Aro-class">
-            <h4 className="bg-warning text-white text-center p-2">
+            <h4 className="bg-dark text-white text-center p-2">
                 {this.state.userName}'s Its my list things to do!!!
                 ({ this.state.todoItems.filter(t => !t.done).length} items to do)
             </h4> 
