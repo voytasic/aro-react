@@ -33,8 +33,7 @@ export default class App extends Component {
             this.setState( () => ({
                 todoItems: newTodoItems
             }) );    
-            console.log(' spakowana tablica: ', newTodoItems);
-            console.log(' rozpakowana tablica:',...newTodoItems);
+            
     }
 
     toggleTodo = (todo) => this.setState({ todoItems:
