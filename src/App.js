@@ -42,6 +42,7 @@ export default class App extends Component {
     toggleRemove = (remove) => this.setState({ todoItems:
         this.state.todoItems.map(item => item.action === remove.action
         ? { ...item, remove: !item.remove} : item)});
+    changeTodoItem =  () => {};  
         
     todoTableRows = () => this.state.todoItems.map(item =>
         <tr key={ item.action }>
@@ -54,34 +55,35 @@ export default class App extends Component {
                 <input type="checkbox" checked={ item.remove }
                 onChange={ () => this.toggleRemove(item) } />
             </td>
-      </tr> );
-  render = () =>
-      <div className="">
-          <div className="Aro-class">
-             <h4 className="bg-primary text-white text-center p-2">
-              {this.state.userName}'s Its my list things to do!!!
-              ({ this.state.todoItems.filter(t => !t.done).length} items to do)
-          </h4> 
-          </div>
-          
-          <div className="container-fluid">
-              <div className="my-6">
-                  <input className="form-control"
-                      value={ this.state.newItemText }
-                      onChange={ this.updateNewTextValue } />
-                      <div class="d-grid gap-2 d-md-flex">
+            <td><button className="btn btn-success"
+                onClick={ this.changeTodoItem }>Edit</button></td>
+        </tr> );
+    render = () =>
+    <div className="">
+        <div className="Aro-class">
+            <h4 className="bg-warning text-white text-center p-2">
+                {this.state.userName}'s Its my list things to do!!!
+                ({ this.state.todoItems.filter(t => !t.done).length} items to do)
+            </h4> 
+        </div>
+        <div className="container-fluid">
+            <div className="my-6">
+                <input className="form-control"
+                    value={ this.state.newItemText }
+                    onChange={ this.updateNewTextValue } />
+                    <div class="d-grid gap-2 d-md-flex">
                         <button className="btn btn-primary me-md-2"
-                          onClick={ this.createNewTodo }>Add</button>
+                            onClick={ this.createNewTodo }>Add</button>
                         <button className="btn btn-secondary "
-                          onClick={ this.removeFilteredItems }>Remove</button>
-                      </div>
-              </div>
-              <table className="table table-striped table-bordered">
-                  <thead>
-                      <tr><th>Description</th><th>Done</th><th>Remove</th></tr>
-                  </thead>
-                  <tbody>{ this.todoTableRows() }</tbody>
-              </table>
-          </div>
-      </div>
+                            onClick={ this.removeFilteredItems }>Remove</button>                      
+                    </div>
+            </div>
+            <table className="table table-striped table-bordered">
+                <thead>
+                    <tr><th>Description</th><th>Done</th><th>Remove</th><th>Edit</th></tr>
+                </thead>
+                <tbody>{ this.todoTableRows() }</tbody>
+            </table>
+        </div>
+    </div>
 }
